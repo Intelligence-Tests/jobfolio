@@ -16,12 +16,12 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 const corsOptions = {
-    origin:"https://jobfolio-ev5d.onrender.com",
+    origin:'http://localhost:8000',
     credentials:true
 }
 app.use(cors(corsOptions));
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000; 
 const _dirname=path.resolve();
 
 // api's

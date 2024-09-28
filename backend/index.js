@@ -8,6 +8,9 @@ import companyRoute from "./routes/company.route.js";
 import jobRoute from "./routes/job.route.js";
 import applicationRoute from "./routes/application.route.js";
 import path from "path";
+import { Webhook } from "svix";
+import bodyParser from "body-parser";
+import mongoose from "mongoose";
 
 dotenv.config({});
 const app = express();
@@ -16,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 const corsOptions = {
-    origin:'https://jobfolio-ev5d.onrender.com',
+    origin:'http://localhost:8000',
     credentials:true
 }
 app.use(cors(corsOptions));
@@ -36,5 +39,6 @@ app.get('*',(_,res)=>{
 
 app.listen(PORT,()=>{
     connectDB();
-    // console.log(`Server running at port ${PORT}`);
+    console.log(`Server running at port ${PORT}`);
 })
+
